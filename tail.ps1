@@ -1,0 +1,1 @@
+Get-Content c:\windows-dns-test\log.txt -Wait
