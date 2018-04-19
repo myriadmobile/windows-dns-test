@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: windows-dns-test
+  name: windows-dns-test
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: windows-dns-test
+      name: windows-dns-test
+    spec:
+      containers:
+      - name: windows-dns-test
+        imagePullPolicy: Always
+        image: myriadmobile/windows-dns-test
+      nodeSelector:
+        beta.kubernetes.io/os: windows
+      tolerations:
+      - effect: NoSchedule
+        key: os
+        value: windows
